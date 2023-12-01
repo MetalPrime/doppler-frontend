@@ -14,7 +14,7 @@ export default function TableBodyProject({projects}: {projects: Project[]}) {
                             
                         </td>
                         <td scope="col" className="whitespace-nowrap px-3 py-3 w-1/6 ">
-                            {project.status}
+                           <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{project.status}</span> 
                         </td>
                         <td scope="col" className="whitespace-nowrap px-3 py-3 w-1/6 ">
                             <ul>

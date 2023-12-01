@@ -20,6 +20,10 @@ export default function SideNav() {
                 <div className="hidden h-auto w-full grow relative  md:block">
                     <Image className="opacity-50 mix-blend-soft-light" priority={true} src="/patterns/sideNavDetail.svg" alt={"Pattern Ilustration"} width={470} height={639} ></Image>
                 </div>
+                <div className="hidden md:block absolute bottom-5 w-60">
+                    <p className="text-xs whitespace-normal	text-white">“DOPPLER” es un administrador proyectos de investigación, enfocados en el mejoramiento de cultivos de frijol donde se aborden temas como plagas y evaluaciones de comportamiento de las plantas en determinados ambientes.</p>
+                    <p className="text-xs whitespace-normal	text-slate-300	">@2023</p>
+                </div>
             </div>
         </div>
     )
