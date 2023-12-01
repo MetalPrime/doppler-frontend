@@ -99,3 +99,23 @@ export async function updateInvoice(id:string,formData: FormData) {
     revalidatePath('/');
     redirect('/');
 }
+
+export async function deleteProject(id: string) {
+    try {
+        await fetch(`http://localhost:8080/project/delete?id=${id}`, {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" },
+
+        }).then(() => {
+            console.log("Update Succesful")
+
+
+        })
+    } catch (error) {
+        return {
+            message: 'Database Error: Failed to Delete Project.',
+          };
+    }
+    revalidatePath('/');
+    redirect('/');
+  }

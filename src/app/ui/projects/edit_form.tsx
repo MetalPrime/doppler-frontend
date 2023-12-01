@@ -101,7 +101,7 @@ export default function Form({ beans, partners, project }: { beans: Bean[], part
                     >
                         Cancel
                     </Link>
-                    <Button type="submit">Create Project</Button>
+                    <Button type="submit">Edit Project</Button>
                 </div>
             </div>
 

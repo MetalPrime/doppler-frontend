@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { UilEdit, UilTrash, UilFilePlusAlt  } from '@iconscout/react-unicons'
+import { deleteProject } from "@/app/lib/actions";
 
 export function CreateProject() {
   return (
@@ -25,9 +26,11 @@ export function UpdateProject({ id }: { id: string }) {
 }
 
 export function DeleteProject({ id }: { id: string }) {
+  const deleteProjectWithId = deleteProject.bind(null, id);
+
   return (
     <>
-      <form >
+      <form action={deleteProjectWithId}>
         <button className="rounded-md border border-red-100 p-2 hover:bg-gray-100">
           <UilTrash className="w-5" />
         </button>
