@@ -11,5 +11,6 @@ export interface ITable {
     query: string;
     currentPage: number;
     headers: ITableHeader[];
-    children: React.ReactNode
+    children: React.ReactNode;
+    totalPages: number;
 }

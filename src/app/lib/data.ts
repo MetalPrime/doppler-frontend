@@ -1,17 +1,26 @@
 import { unstable_noStore as noStore } from 'next/cache';
 
-const ITEMS_PER_PAGE = 10;
-
-export async function fetchProjectsFilter({currentPage}:{currentPage: number,}) {
+export async function fetchProjectsFilter({currentPage,query}:{currentPage: number,query:string}) {
     noStore();
 
     try {
-        const data = await fetch(`http://localhost:8080/project/getAllFilter?currentPage=${currentPage}`);
+        const data = await fetch(`http://localhost:8080/project/getAllFilter?currentPage=${currentPage}&query=${query}`);
         return data.json();
     } catch (error) {
         console.error('Database Error:', error);
         throw new Error('Failed to fetch all projects.');
     }
 
+}
+
+export async function fetchProjectsPages(query: string) {
+    noStore();
+
+    try {
+        const data = await fetch(`http://localhost:8080/project/totalPages?query=${query}`);
+        return data.json();
+    } catch (error) {
+        
+    }
 }
 

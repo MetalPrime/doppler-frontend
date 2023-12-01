@@ -4,11 +4,13 @@ import { ReactElement } from 'react';
 import clsx from 'clsx';
 import { ITable, ITableHeader } from '@/app/lib/interfaces';
 import Pagination from './pagination';
+import Search from './search';
 
 export default async function Table({
     query,
     currentPage,
     headers,
+    totalPages,
     children
 }: ITable) {
 
@@ -17,6 +19,7 @@ export default async function Table({
         <div className="mt-6 flow-root">
             <div className="inline-block min-w-full align-middle">
                 <div className="rounded-lg bg-gray-50 dark:bg-gray-500 p-2 md:pt-0">
+                    <Search placeholder={'Search by name'} />
                     <div className="md:hidden">
                     </div>
                     <table className="hidden min-w-full text-gray-900 dark:text-gray-200 md:table">
@@ -31,7 +34,7 @@ export default async function Table({
                         </tbody>
                     </table>
                 </div>
-                <Pagination totalPages={2}/>
+                <Pagination totalPages={totalPages}/>
             </div>
         </div>
     );
