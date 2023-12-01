@@ -16,7 +16,7 @@ export async function fetchProjectsFilter({ currentPage, query }: { currentPage:
     noStore();
 
     try {
-        const data = await fetch(`http://localhost:8080/project/getAllilter?currentPage=${currentPage}&query=${query}`);
+        const data = await fetch(`http://localhost:8080/project/getAllFilter?currentPage=${currentPage}&query=${query}`);
         return data.json();
     } catch (error) {
         console.error('Database Error:', error);

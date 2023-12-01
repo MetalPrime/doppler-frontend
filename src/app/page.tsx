@@ -1,6 +1,6 @@
 import Table from './ui/general/table'
 import TableBodyProject from './ui/projects/tableData'
-import { fetchProjectsFilter, fetchProjectsPages } from './lib/data';
+import { fetchProjects, fetchProjectsFilter, fetchProjectsPages } from './lib/data';
 import { CreateProject } from './ui/projects/buttons';
 import { ExportToExcel } from './ui/projects/export';
 import { poppins } from './ui/fonts';
@@ -38,6 +38,7 @@ export default async function Page({
   const query = searchParams?.query || '';
   const currentPage = Number(searchParams?.page) || 1;
   const projects = await fetchProjectsFilter({ currentPage, query });
+  const totalProjects = await fetchProjects();
   const totalPages = await fetchProjectsPages(query);
 
   return (
@@ -47,7 +48,7 @@ export default async function Page({
           <h1 className={`${poppins.className} mb-4 text-xl md:text-2xl text-black text-xl font-semibold`}>Projects</h1>
           <div className='w-fit flex flex-row'>
             <CreateProject />
-            <ExportToExcel data={projects} />
+            <ExportToExcel data={totalProjects} />
           </div>
         </div>
 
