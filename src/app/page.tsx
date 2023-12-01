@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import Table from './ui/general/table'
 import TableBodyProject from './ui/projects/tableData'
-import { projects } from './lib/placeholder_data'
+import { fetchProjectsFilter } from './lib/data';
 
-export default function Page({
+export default async function Page({
   searchParams,
 }: {
   searchParams?: {
@@ -35,7 +35,7 @@ export default function Page({
   ]
   const query = searchParams?.query || '';
   const currentPage = Number(searchParams?.page) || 1;
-
+  const projects = await fetchProjectsFilter({currentPage});
 
   return (
     <main className='w-full'>
@@ -47,3 +47,4 @@ export default function Page({
     </main>
   )
 }
+
