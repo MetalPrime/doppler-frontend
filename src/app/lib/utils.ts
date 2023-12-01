@@ -1,3 +1,5 @@
+
+
 export const formatDateToLocal = (
     dateStr: string,
     locale: string = 'en-US',
@@ -47,6 +49,8 @@ export const formatDateToLocal = (
 
 import { write, utils } from 'xlsx';
 import { saveAs } from 'file-saver';
+import { Bean, Partner } from './definitions';
+import { fetchBeans, fetchPartners } from './data';
 
   export const exportToExcel = (data: any,fileName: string,sheetName: string) => {
     const ws = utils.json_to_sheet(data);
@@ -56,4 +60,14 @@ import { saveAs } from 'file-saver';
   
     saveAs(excelBlob, `${fileName}.xlsx`);
 
+  }
+
+  export async function getPartnersNames  (partnersList: String[]) {
+    const partners = await fetchPartners() as Partner[];
+    return partners.filter(partner => partnersList.includes(partner.id) ).map(i => i.name);
+  }
+
+  export async function getBeanName (bean: String) {
+    const beans = await fetchBeans() as Bean[];
+    return beans.find(b => b.id == bean)?.name;
   }

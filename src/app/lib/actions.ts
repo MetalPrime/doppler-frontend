@@ -4,6 +4,7 @@ import { z } from 'zod';
 import { revalidatePath } from 'next/cache';
 import { Partner, Project } from './definitions';
 import { redirect } from 'next/navigation';
+import { partners } from './placeholder_data';
 
 
 const FormSchema = z.object({
@@ -14,15 +15,16 @@ const FormSchema = z.object({
     partners_id: z.string().array(),
 });
 
-const CreatePartner = FormSchema.omit({ partners_id: true });
+const CreatePartner = FormSchema;
 
 export async function createProject(formData: FormData) {
     console.log(formData);
-    const { name, status, description, bean } = CreatePartner.parse({
+    const { name, status, description, bean, partners_id } = CreatePartner.parse({
         name: formData.get('name'),
         status: formData.get('status'),
         description: formData.get('description'),
         bean: formData.get('bean'),
+        partners_id: formData.getAll("partner"),
     })
 
     type OmitProject = Omit<Project, 'id'>;
@@ -30,7 +32,7 @@ export async function createProject(formData: FormData) {
 
     const project: OmitProject = {
         status: status,
-        partners_id: [],
+        partners_id: partners_id,
         description: description,
         name: name,
         bean_id: bean,
@@ -61,11 +63,12 @@ export async function createProject(formData: FormData) {
 
 export async function updateInvoice(id:string,formData: FormData) {
     console.log(formData);
-    const { name, status, description, bean } = CreatePartner.parse({
+    const { partners_id, name, status, description, bean } = CreatePartner.parse({
         name: formData.get('name'),
         status: formData.get('status'),
         description: formData.get('description'),
         bean: formData.get('bean'),
+        partners_id: formData.getAll("partner"),
     })
 
     type OmitProject = Omit<Project, 'id'>;
@@ -73,7 +76,7 @@ export async function updateInvoice(id:string,formData: FormData) {
 
     const project: OmitProject = {
         status: status,
-        partners_id: [],
+        partners_id: partners_id,
         description: description,
         name: name,
         bean_id: bean,

@@ -3,7 +3,7 @@ import { Partner } from '@/app/lib/definitions';
 import React, { ChangeEvent, useState } from 'react';
 import Select from 'react-select';
 
-const MultiSelect = ({ partners }: { partners: Partner[] }) => {
+const MultiSelect = ({ partners, values }: { partners: Partner[], values: String[] |null }) => {
     const [selectedValues, setSelectedValues] = useState<string[]>([]);
 
     const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -16,11 +16,17 @@ const MultiSelect = ({ partners }: { partners: Partner[] }) => {
         label: partner.name
     }))
 
+    const initialValues = values? values.map(value => ({
+        value: value,
+        label: options.find(op => op.value === value)?.label
+    })) : []
+
     return (
         <>
             <Select id="partner"
                 name="partner"
                 isMulti
+                defaultValue={initialValues? initialValues: {value: "", label: ""}}
                 options={options}
                 aria-describedby="name-error"
                 required

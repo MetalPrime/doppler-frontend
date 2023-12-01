@@ -86,7 +86,7 @@ export default function Form({ beans, partners }: { beans: Bean[], partners: Par
                 <div className="w-full flex flex-col justify-start items-start gap-1.5 inline-flex">
                     <label htmlFor="partner" className="text-black text-base font-normal">Partners</label>
                     <div className="relative w-full h-fit">
-                        <MultiSelect partners={partners}/>
+                        <MultiSelect partners={partners} values={null}/>
                     </div>
                 </div>
                 <div className="mt-6 flex justify-end gap-4">
