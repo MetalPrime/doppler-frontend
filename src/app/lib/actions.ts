@@ -56,3 +56,46 @@ export async function createProject(formData: FormData) {
     revalidatePath('/');
     redirect('/');
 }
+
+
+
+export async function updateInvoice(id:string,formData: FormData) {
+    console.log(formData);
+    const { name, status, description, bean } = CreatePartner.parse({
+        name: formData.get('name'),
+        status: formData.get('status'),
+        description: formData.get('description'),
+        bean: formData.get('bean'),
+    })
+
+    type OmitProject = Omit<Project, 'id'>;
+
+
+    const project: OmitProject = {
+        status: status,
+        partners_id: [],
+        description: description,
+        name: name,
+        bean_id: bean,
+    }
+
+    try {
+        await fetch(`http://localhost:8080/project/edit?id=${id}`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(project)
+
+        }).then(() => {
+            console.log("Update Succesful")
+
+
+        })
+    } catch (error) {
+        return {
+            message: 'Database Error: Failed to Update Project.',
+          };
+    }
+
+    revalidatePath('/');
+    redirect('/');
+}

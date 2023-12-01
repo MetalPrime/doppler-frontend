@@ -1,6 +1,6 @@
 import { unstable_noStore as noStore } from 'next/cache';
 
-export async function fetchProjectsFilter({currentPage,query}:{currentPage: number,query:string}) {
+export async function fetchProjectsFilter({ currentPage, query }: { currentPage: number, query: string }) {
     noStore();
 
     try {
@@ -13,6 +13,17 @@ export async function fetchProjectsFilter({currentPage,query}:{currentPage: numb
 
 }
 
+export async function fetchProjectById(id: string) {
+    noStore();
+
+    try {
+        const data = await fetch(`http://localhost:8080/project/getById?id=${id}`);
+        return data.json();
+    } catch (error) {
+
+    }
+}
+
 export async function fetchProjectsPages(query: string) {
     noStore();
 
@@ -20,29 +31,29 @@ export async function fetchProjectsPages(query: string) {
         const data = await fetch(`http://localhost:8080/project/totalPages?query=${query}`);
         return data.json();
     } catch (error) {
-        
+
     }
 }
 
-export async function fetchBeans(){
+export async function fetchBeans() {
     noStore();
 
     try {
         const data = await fetch(`http://localhost:8080/bean/getAll`);
         return data.json();
     } catch (error) {
-        
+
     }
 }
 
-export async function fetchPartners(){
+export async function fetchPartners() {
     noStore();
 
     try {
         const data = await fetch(`http://localhost:8080/partner/getAll`);
         return data.json();
     } catch (error) {
-        
+
     }
 }
 
