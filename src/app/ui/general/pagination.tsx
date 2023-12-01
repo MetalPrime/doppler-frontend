@@ -23,7 +23,7 @@ export default function Pagination({ totalPages }: { totalPages: number }) {
   return (
     <>
 
-      <div className="inline-flex">
+      <div className="inline-flex w-full justify-center m-5">
         <PaginationArrow
           direction="left"
           href={createPageURL(currentPage - 1)}
@@ -73,11 +73,11 @@ function PaginationNumber({
   isActive: boolean;
 }) {
   const className = clsx(
-    'flex h-10 w-10 items-center justify-center text-sm border',
+    'flex h-10 w-10 items-center justify-center text-sm ',
     {
       'rounded-l-md': position === 'first' || position === 'single',
       'rounded-r-md': position === 'last' || position === 'single',
-      'z-10 bg-blue-600 border-blue-600 text-white': isActive,
+      'z-10 bg-green-600 rounded-full  text-white': isActive,
       'hover:bg-gray-100 dark:hover:bg-gray-600': !isActive && position !== 'middle',
       'text-gray-300': position === 'middle',
     },
