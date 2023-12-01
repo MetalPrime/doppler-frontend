@@ -2,7 +2,7 @@
 
 import { z } from 'zod';
 import { revalidatePath } from 'next/cache';
-import { Project } from './definitions';
+import { Partner, Project } from './definitions';
 import { redirect } from 'next/navigation';
 
 
@@ -118,4 +118,106 @@ export async function deleteProject(id: string) {
     }
     revalidatePath('/');
     redirect('/');
+  }
+
+  const PartnerSchema = z.object({
+    name: z.string(),
+    type: z.enum(['NATURAL','JURIDICA']),
+    description: z.string(),
+});
+
+export async function createPartner(formData: FormData) {
+    console.log(formData);
+    const { name, type, description } = PartnerSchema.parse({
+        name: formData.get('name'),
+        type: formData.get('type'),
+        description: formData.get('description'),
+    })
+
+    type OmitPartner = Omit<Partner, 'id'>;
+
+
+    const partner: OmitPartner = {
+        type: type,
+        description: description,
+        name: name,
+    }
+
+    try {
+        await fetch(`http://localhost:8080/partner/add`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(partner)
+
+        }).then(() => {
+            console.log("Submit Partner Succesful")
+
+
+        })
+    } catch (error) {
+        return {
+            message: 'Database Error: Failed to Create Partner.',
+          };
+    }
+
+    revalidatePath('/partners');
+    redirect('/partners');
+}
+
+export async function updatePartner(id:string,formData: FormData) {
+    console.log(formData);
+    const { name, type, description } = PartnerSchema.parse({
+        name: formData.get('name'),
+        type: formData.get('type'),
+        description: formData.get('description'),
+    })
+
+    type OmitPartner = Omit<Partner, 'id'>;
+
+
+    const partner: OmitPartner = {
+        type: type,
+        description: description,
+        name: name,
+    }
+
+    try {
+        await fetch(`http://localhost:8080/partner/edit?id=${id}`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(partner)
+
+        }).then(() => {
+            console.log("Update Succesful")
+
+
+        })
+    } catch (error) {
+        return {
+            message: 'Database Error: Failed to Update Partner.',
+          };
+    }
+
+    revalidatePath('/partners');
+    redirect('/partners');
+}
+
+export async function deletePartner(id: string) {
+    try {
+        await fetch(`http://localhost:8080/partner/delete?id=${id}`, {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" },
+
+        }).then(() => {
+            console.log("Delete Succesful")
+
+
+        })
+    } catch (error) {
+        return {
+            message: 'Database Error: Failed to Delete Partner.',
+          };
+    }
+    revalidatePath('/partners');
+    redirect('/partners');
   }

@@ -4,6 +4,7 @@ export type Partner = {
     id: string;
     type: "NATURAL" | "JURIDICA";
     name: string;
+    description: string;
 }
 
 export type Bean = {

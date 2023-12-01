@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Table from './ui/general/table'
 import TableBodyProject from './ui/projects/tableData'
 import { fetchProjectsFilter, fetchProjectsPages } from './lib/data';

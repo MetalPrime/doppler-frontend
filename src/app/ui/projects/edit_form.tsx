@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Button } from "../general/button";
 import { Bean, Partner, Project } from "@/app/lib/definitions";
 import MultiSelect from "./multiple_Select";
-import { createProject, updateInvoice } from "@/app/lib/actions";
+import { updateInvoice } from "@/app/lib/actions";
 
 
 export default function Form({ beans, partners, project }: { beans: Bean[], partners: Partner[], project: Project }) {
