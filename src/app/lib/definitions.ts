@@ -11,8 +11,6 @@ export type Bean = {
     name: string;
     scientificName: string;
     originRegion: string;
-    uses: string;
-    mainPests: string[];
 }
 
 export type Status = 'Propuesta' | 'Aprobación'  | 'Planificación'  | 'Financiamiento'  | 'Ejecución' | 'Monitoreo' | 'Informe Intermedio' | 'Finalización' | 'Evaluación' | 'Publicación' | 'Archivado';

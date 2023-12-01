@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Table from './ui/general/table'
 import TableBodyProject from './ui/projects/tableData'
 import { fetchProjectsFilter, fetchProjectsPages } from './lib/data';
+import { CreateProject } from './ui/projects/buttons';
 
 export default async function Page({
   searchParams,
@@ -41,6 +42,7 @@ export default async function Page({
   return (
     <main className='w-full'>
       <div className="">
+      <CreateProject/>
       <Table query={query} currentPage={currentPage} headers={tableHeader}  totalPages={totalPages}>
         <TableBodyProject projects={projects}/>
       </Table>

@@ -116,77 +116,62 @@ export const projects: Project[] = [
 ]
 
 export const partners = [  {
-    id: "PART001",
     type: "JURIDICA",
     name: "AgroIndustrias S.A."
   },
   {
-    id: "PART002",
     type: "NATURAL",
     name: "Juan Pérez Agricultor"
   },
   {
-    id: "PART003",
     type: "JURIDICA",
     name: "Fundación para la Investigación Agrícola"
   },
   {
-    id: "PART004",
     type: "JURIDICA",
     name: "Banco Agrario Internacional"
   },
   {
-    id: "PART005",
     type: "NATURAL",
     name: "María Rodríguez Empresaria"
   },
   {
-    id: "PART006",
     type: "JURIDICA",
     name: "Cooperativa de Agricultores Unidos"
   },
   {
-    id: "PART007",
     type: "NATURAL",
     name: "Carlos Gómez Inversionista"
   },
   {
-    id: "PART008",
     type: "JURIDICA",
     name: "Instituto de Desarrollo Rural"
   },
   {
-    id: "PART009",
     type: "NATURAL",
     name: "Elena Vargas Financiera"
   },
   {
-    id: "PART010",
     type: "JURIDICA",
     name: "Fondo Nacional de Agricultura Sostenible"
   },
   {
-    id: "PART011",
     type: "JURIDICA",
     name: "Compañía Agroquímica Innovadora"
   },
   {
-    id: "PART012",
     type: "NATURAL",
     name: "Pedro Navarro Inversionista"
   },
   {
-    id: "PART013",
     type: "NATURAL",
     name: "Ana López Agricultora"
   },
   {
-    id: "PART014",
     type: "JURIDICA",
     name: "Asociación de Empresas Agroalimentarias"
   },
   {
-    id: "PART015",
     type: "JURIDICA",
     name: "Fundación para la Investigación Ambiental"
   }]
@@ -196,78 +181,58 @@ export const beans = [    {
     name: "Frijol Negro",
     scientificName: "Phaseolus vulgaris",
     originRegion: "América Latina",
-    uses: "Consumo humano directo, en ensaladas, sopas, y platos principales.",
-    mainPests: ["Ácaros", "Pulgones", "Gorgojos"],
 },
 {
     id: "2",
     name: "Frijol Pinto",
     scientificName: "Phaseolus vulgaris",
     originRegion: "América Latina",
-    uses: "Común en la cocina mexicana, se utiliza en guisos, frijoles refritos, etc.",
-    mainPests: ["Mosca del frijol", "Ácaros"],
 },
 {
     id: "3",
     name: "Frijol Rojo",
     scientificName: "Phaseolus vulgaris",
     originRegion: "América Latina",
-    uses: "Se utiliza en guisos y sopas.",
-    mainPests: ["Pulgones", "Gorgojos"],
 },
 {
     id: "4",
     name: "Frijol Adzuki",
     scientificName: "Vigna angularis",
     originRegion: "Asia",
-    uses: "Común en la cocina asiática, en postres y platos salados.",
-    mainPests: ["Pulgones", "Trips"],
 },
 {
     id: "5",
     name: "Frijol Cannellini",
     scientificName: "Phaseolus vulgaris",
     originRegion: "Italia",
-    uses: "En la cocina italiana, especialmente en ensaladas y guisos.",
-    mainPests: ["Ácaros", "Orugas"],
 },
 {
     id: "6",
     name: "Frijol Lima",
     scientificName: "Phaseolus lunatus",
     originRegion: "América Latina",
-    uses: "Consumo en grano verde o seco, común en sopas y guisos.",
-    mainPests: ["Pulgones", "Gusanos cortadores"],
 },
 {
     id: "7",
     name: "Frijol Mungo",
     scientificName: "Vigna radiata",
     originRegion: "Asia",
-    uses: "Común en la cocina asiática, en ensaladas y platos principales.",
-    mainPests: ["Mosca del frijol", "Pulgones"],
 },
 {
     id: "8",
     name: "Frijol Garbanzo",
     scientificName: "Cicer arietinum",
     originRegion: "Oriente Medio",
-    uses: "Consumido en todo el mundo, especialmente en ensaladas y guisos.",
-    mainPests: ["Orugas", "Trips"],
 },
 {
     id: "9",
     name: "Frijol Azuki",
     scientificName: "Vigna angularis",
     originRegion: "Asia",
-    uses: "Común en la cocina asiática, en postres y platos salados.",
-    mainPests: ["Pulgones", "Trips"],
 },
 {
     id: "10",
     name: "Frijol Canario",
     scientificName: "Phaseolus vulgaris",
     originRegion: "América Latina",
-    uses: "Se utiliza en guisos y sopas.",
-    mainPests: ["Pulgones", "Gorgojos"],
 },]

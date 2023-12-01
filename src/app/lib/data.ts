@@ -24,3 +24,25 @@ export async function fetchProjectsPages(query: string) {
     }
 }
 
+export async function fetchBeans(){
+    noStore();
+
+    try {
+        const data = await fetch(`http://localhost:8080/bean/getAll`);
+        return data.json();
+    } catch (error) {
+        
+    }
+}
+
+export async function fetchPartners(){
+    noStore();
+
+    try {
+        const data = await fetch(`http://localhost:8080/partner/getAll`);
+        return data.json();
+    } catch (error) {
+        
+    }
+}
+
