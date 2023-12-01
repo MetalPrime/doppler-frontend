@@ -3,6 +3,7 @@ import Table from './ui/general/table'
 import TableBodyProject from './ui/projects/tableData'
 import { fetchProjectsFilter, fetchProjectsPages } from './lib/data';
 import { CreateProject } from './ui/projects/buttons';
+import { ExportToExcel } from './ui/projects/export';
 
 export default async function Page({
   searchParams,
@@ -43,6 +44,7 @@ export default async function Page({
     <main className='w-full'>
       <div className="">
       <CreateProject/>
+      <ExportToExcel data={projects}/>
       <Table query={query} currentPage={currentPage} headers={tableHeader}  totalPages={totalPages}>
         <TableBodyProject projects={projects}/>
       </Table>
